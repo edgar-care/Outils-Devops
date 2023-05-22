@@ -1,0 +1,5 @@
+version: '3'
+services:
+    github-action:
+        build: .
+        privileged: true

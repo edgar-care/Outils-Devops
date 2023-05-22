@@ -1,0 +1,22 @@
+name: Créer une issue
+
+on:
+  push:
+    branches:
+      - main # Remplacez par le nom de la branche sur laquelle vous souhaitez déclencher l'action
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Vérifier les modifications
+      run: echo "Vérifier les modifications à ajouter à l'issue" # Remplacez cette étape par vos propres vérifications
+
+    - name: Créer une issue
+      uses: peter-evans/create-issue@v2
+      with:
+        title: "Titre de l'issue" # Remplacez par le titre de l'issue que vous souhaitez créer
+        body: "Contenu du corps de l'issue" # Remplacez par le contenu du corps de l'issue que vous souhaitez créer
+        labels: "bug" # Remplacez par les libellés (labels) que vous souhaitez attribuer à l'issue
+        assignees: "thomasDarrieumerlou" # Remplacez par les utilisateurs que vous souhaitez assigner à l'issue

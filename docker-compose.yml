@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  Jenkins:
+    image: test-jenkins
+    build:
+      context: Jenkins
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+###################################
+#			ADD FILE .ENV		  #
+###################################
+
+    env_file:
+      - .env
+
+#######################################
+#			SET VOLUME JENKINS		  #
+#######################################
+
+    volumes:
+      - jenkins_local:/var/jenkins_local
+volumes:
+    jenkins_local:
