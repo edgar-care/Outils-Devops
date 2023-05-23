@@ -1,25 +1,12 @@
-version: "3.9"
+version: "3"
 services:
-  Jenkins:
-    image: test-jenkins
-    build:
-      context: Jenkins
-      dockerfile: Dockerfile
+  portainer:
+    image: portainer/portainer-ce:latest
     ports:
-      - "8080:8080"
-
-###################################
-#			ADD FILE .ENV		  #
-###################################
-
-    env_file:
-      - .env
-
-#######################################
-#			SET VOLUME JENKINS		  #
-#######################################
-
+      - 9443:9443
     volumes:
-      - jenkins_local:/var/jenkins_local
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
 volumes:
-    jenkins_local:
+  data:
